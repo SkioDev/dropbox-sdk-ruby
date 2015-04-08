@@ -74,16 +74,16 @@ module Dropbox # :nodoc:
     # See the man page for 'verify' for more information on error codes.
     #
     # You can comment out this code if your Ruby version is not vulnerable.
-    http.verify_callback = proc do |preverify_ok, ssl_context|
-      # 0 is the error code for success
-      if preverify_ok && ssl_context.error == 0
-        true
-      else
-        # 7 is the error code for certification signature failure
-        ssl_context.error = 7
-        false
-      end
-    end
+    # http.verify_callback = proc do |preverify_ok, ssl_context|
+    #   # 0 is the error code for success
+    #   if preverify_ok && ssl_context.error == 0
+    #     true
+    #   else
+    #     # 7 is the error code for certification signature failure
+    #     ssl_context.error = 7
+    #     false
+    #   end
+    # end
 
     #We use this to better understand how developers are using our SDKs.
     request['User-Agent'] =  "OfficialDropboxRubySDK/#{Dropbox::SDK_VERSION}"
